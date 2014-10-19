@@ -1,0 +1,8 @@
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.Form1.resources
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.Properties.Resources.resources
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.csproj.GenerateResource.Cache
+d:\exam c#\LIFT\LIFT\bin\Debug\LIFT.exe
+d:\exam c#\LIFT\LIFT\bin\Debug\LIFT.pdb
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.exe
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.pdb
+d:\exam c#\LIFT\LIFT\obj\x86\Debug\LIFT.csprojResolveAssemblyReference.cache
