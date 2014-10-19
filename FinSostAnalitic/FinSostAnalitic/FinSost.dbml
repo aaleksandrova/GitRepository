@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FinSostFL" Class="FinSostDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\;Initial Catalog=FinSostFL;Integrated Security=True" SettingsObjectName="FinSostAnalitic.Properties.Settings" SettingsPropertyName="FinSostFLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Adress" Member="Adresses">
+    <Type Name="Adress">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Area" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="House" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Appartment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ZIPCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FlagUrOrFact" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Client_Adress" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AgeOfBorrower" Member="AgeOfBorrowers">
+    <Type Name="AgeOfBorrower">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByuroeCreditHistory" Member="ByuroeCreditHistories">
+    <Type Name="ByuroeCreditHistory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="INN" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Residantance" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DateBirsday" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WhereWork" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Mariied" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Adress" Member="Adresses" ThisKey="ID" OtherKey="ClientId" Type="Adress" />
+      <Association Name="Client_Family" Member="Families" ThisKey="ID" OtherKey="ClientId" Type="Family" />
+      <Association Name="Client_FinData" Member="FinDatas" ThisKey="ID" OtherKey="ClientId" Type="FinData" />
+      <Association Name="Client_KlassHistory" Member="KlassHistories" ThisKey="ID" OtherKey="ClientId" Type="KlassHistory" />
+      <Association Name="Client_Credit" Member="Credits" ThisKey="ID" OtherKey="ClientId" Type="Credit" />
+      <Association Name="Client_Ocenka" Member="Ocenkas" ThisKey="ID" OtherKey="ClientId" Type="Ocenka" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditHistory" Member="CreditHistories">
+    <Type Name="CreditHistory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExistanceOfDeposite" Member="ExistanceOfDeposites">
+    <Type Name="ExistanceOfDeposite">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExpirienceAtLastPlaceOfWork" Member="ExpirienceAtLastPlaceOfWorks">
+    <Type Name="ExpirienceAtLastPlaceOfWork">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Family" Member="Families">
+    <Type Name="Family">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBirsday" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WhoIsForClient" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Client_Family" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FamilyComposition" Member="FamilyCompositions">
+    <Type Name="FamilyComposition">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinConditionOfBorrowersFamily" Member="FinConditionOfBorrowersFamilies">
+    <Type Name="FinConditionOfBorrowersFamily">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinData" Member="FinDatas">
+    <Type Name="FinData">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOcenki" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Salary1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Salary2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Salary3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryAv" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OtherIncome1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OtherIncome2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OtherIncome3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OtherIncomeAv" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalIncome1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalIncome2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalIncome3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalIncomeAv" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome11" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome12" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome13" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome1Av" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome21" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome22" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome23" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome2Av" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome31" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome32" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome33" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome3Av" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome41" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome42" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome43" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome4Av" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutcome1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutcome2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutcome3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutcomeSr" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNetIncome1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNetIncome2" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNetIncome3" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNetIncomeAv" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Client_FinData" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Klass" Member="Klasses">
+    <Type Name="Klass">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Klass" Member="Klass1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Klass_KlassHistory" Member="KlassHistories" ThisKey="ID" OtherKey="Klass" Type="KlassHistory" />
+      <Association Name="Klass_Ocenka" Member="Ocenkas" ThisKey="ID" OtherKey="IdCategoryOfBorrower" Type="Ocenka" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KlassHistory" Member="KlassHistories">
+    <Type Name="KlassHistory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DataOcenki" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Klass" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Client_KlassHistory" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Klass_KlassHistory" Member="Klass1" ThisKey="Klass" OtherKey="ID" Type="Klass" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LevelOfSequrity" Member="LevelOfSequrities">
+    <Type Name="LevelOfSequrity">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentCurrentCredits" Member="PaymentCurrentCredits">
+    <Type Name="PaymentCurrentCredit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Purpose" Member="Purposes">
+    <Type Name="Purpose">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Purpose_TermOfLoan" Member="TermOfLoans" ThisKey="ID" OtherKey="IdPurpose" Type="TermOfLoan" />
+      <Association Name="Purpose_Credit" Member="Credits" ThisKey="ID" OtherKey="Purpose" Type="Credit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RatioLoanPaymentToNetIncome" Member="RatioLoanPaymentToNetIncomes">
+    <Type Name="RatioLoanPaymentToNetIncome">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReputationOfBorrower" Member="ReputationOfBorrowers">
+    <Type Name="ReputationOfBorrower">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Salary" Member="Salaries">
+    <Type Name="Salary">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sequrity" Member="Sequrities">
+    <Type Name="Sequrity">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Sequrity_Credit" Member="Credits" ThisKey="ID" OtherKey="KindOfSequrity" Type="Credit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TermOfLoan" Member="TermOfLoans">
+    <Type Name="TermOfLoan">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPurpose" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Purpose_TermOfLoan" Member="Purpose" ThisKey="IdPurpose" OtherKey="ID" Type="Purpose" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TotalFamilyIncome" Member="TotalFamilyIncomes">
+    <Type Name="TotalFamilyIncome">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Credit" Member="Credits">
+    <Type Name="Credit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Purpose" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Summa" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SummaEq" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Valuta" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Exchage" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Stavka" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Term" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sequrity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SequrityDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="KindOfSequrity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SummaSeqForDial" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Credit" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Purpose_Credit" Member="Purpose1" ThisKey="Purpose" OtherKey="ID" Type="Purpose" IsForeignKey="true" />
+      <Association Name="Sequrity_Credit" Member="Sequrity1" ThisKey="KindOfSequrity" OtherKey="ID" Type="Sequrity" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ValueExchange" Member="ValueExchanges">
+    <Type Name="ValueExchange">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Excahnge" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ocenka" Member="Ocenkas">
+    <Type Name="Ocenka">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfOcenki" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdCategoryOfBorrower" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PurposeDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SequrityDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TermOfLoanDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SalaryDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalFamilyIncomeDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RatioLoanPaymentToNetIncomeDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ExistanceOfDepositeDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="LevelOfSequrityDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="FinConditionOfBorrowersFamilyDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpirienceAtLastPlaceOfWorkDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ReputationOfBorrowerDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="FamilyCompositionDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="AgeOfBorrowerDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CreditHistoryDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentCurrentCreditDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ByuroeCreditHistoryDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Klass_Ocenka" Member="Klass" ThisKey="IdCategoryOfBorrower" OtherKey="ID" Type="Klass" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Client_Ocenka" Member="Client" ThisKey="ClientId" OtherKey="ID" Type="Client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

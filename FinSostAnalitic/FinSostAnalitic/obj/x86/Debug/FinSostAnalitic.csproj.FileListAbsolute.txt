@@ -1,0 +1,14 @@
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\bin\Debug\FinSostAnalitic.exe
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\bin\Debug\FinSostAnalitic.pdb
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Properties.Resources.resources
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.csproj.GenerateResource.Cache
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.exe
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.pdb
+d:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Form1.resources
+d:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Registration.resources
+d:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Form2.resources
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.ListClients.resources
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Form_Credits.resources
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.Form_Ocenka.resources
+D:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.History.resources
+d:\exam c#\FinSostAnalitic\FinSostAnalitic\obj\x86\Debug\FinSostAnalitic.csprojResolveAssemblyReference.cache
