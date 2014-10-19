@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ua.fidobank.provisions.domain.Sequrity" table = "sequrity">
+	    <composite-id>
+	    	<key-property column="Sequrity_code" type="long" name="code"/>
+		    <key-property column="Sequrity_codeDeal" type="long" name="codeDeal"/>
+		</composite-id>
+		<property column="Sequrity_number" type="string" name="number"/>
+		
+		<property column="Sequrity_Currency" name="currency">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.Currency</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		
+		<property column="Sequrity_exchengeCurrency" type="double" name="exchengeCurrency"/>
+		<property column="Sequrity_typeSequrity" type="string" name="typeSequrity"/>
+		<property column="Sequrity_sumOfSequrity" type="double" name="sumOfSequrity"/>
+		<property column="Sequrity_sumOfSequrityEq" type="double" name="sumOfSequrityEq"/>
+		<property column="Sequrity_sumOfSequrityForDial" type="double" name="sumOfSequrityForDial"/>
+		<property column="Sequrity_sumOfSequrityForDialEq" type="double" name="sumOfSequrityForDialEq"/>
+		<property column="Sequrity_koeficientLikvidnosty" type="double" name="koeficientLikvidnosty"/>
+		<property column="Sequrity_discontSumma" type="double" name="discontSumma"/>
+		<property column="Sequrity_discontSummaEq" type="double" name="discontSummaEq"/>
+		<property column="Sequrity_costOfSales" type="double" name="costOfSales"/>
+		<property column="Sequrity_costOfSalesEq" type="double" name="costOfSalesEq"/>
+		<property column="Sequrity_sumFutureSeqPotokov" type="double" name="sumFutureSeqPotokov"/>
+		<property column="Sequrity_sumFutureSeqPotokovEq" type="double" name="sumFutureSeqPotokovEq"/>
+		<property column="Sequrity_srokRealizacii" type="integer" name="srokRealizacii"/>
+		<property column="Sequrity_sequrityMultiplyByLiquidity" type="double" name="sequrityMultiplyByLiquidity"/>
+		<property column="Sequrity_totalAmountOfDealSequrity" type="double" name="totalAmountOfDealSequrity"/>
+		<property column="Sequrity_coeficientSequrity" type="double" name="coeficientSequrity"/>
+		<property column="Sequrity_costOfSale" type="double" name="costOfSale"/>
+		<property column="Sequrity_newSummOfSequrityEq" type="double" name="newSummOfSequrityEq"/>	
+	</class>
+</hibernate-mapping>

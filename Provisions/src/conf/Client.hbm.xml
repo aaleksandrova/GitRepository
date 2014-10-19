@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ua.fidobank.provisions.domain.Client" table = "client">
+		<id column="Client_id" type="long" name="id">
+		</id>
+		<property column="Client_inn" type="string" name="inn"/>
+		<property column="Client_name" type="string" name="name"/>
+		<property column="Client_finStatus" type="string" name="finStatus"/>
+		<property column="Client_points" type="integer" name="points"/>
+		<property column="Client_residency" type="string" name="residency"/>
+		<property column="Client_insiders" type="string" name="insiders"/>
+		
+		<map name="deals" cascade="all">
+         <key column="Deal_clientId"/>
+         <index column="Deal_codeOfTransaction" type="long"/>
+         <one-to-many class="ua.fidobank.provisions.domain.Deal"/>
+      	</map>
+	</class>
+	
+	<class name="ua.fidobank.provisions.domain.Deal" table = "deal">
+		<id column="Deal_codeOfTransaction" type="long" name="codeOfTransaction">
+		</id>
+		<property column="Deal_clientId" type="long" name="clientId"/>
+		<property column="Deal_typeOfActive" type="string" name="typeOfActive"/>
+		<property column="Deal_codeOfDeal" type="long" name="codeOfDeal"/>
+		<property column="Deal_numberOfDeal" type="string" name="numberOfDeal"/>
+		<property column="Deal_dateOn" type="string" name="dateOn"/>
+		<property column="Deal_dateTo" type="string" name="dateTo"/>
+		<property column="Deal_numberOfTransaction" type="string" name="numberOfTransaction"/>
+		<property column="Deal_overduePrincipalDebt" type="integer" name="overduePrincipalDebt"/>
+		<property column="Deal_overdueInterestDebt" type="integer" name="overdueInterestDebt"/>
+		<property column="Deal_overdueComissionDebt" type="integer" name="overdueComissionDebt"/>
+		<property column="Deal_newOverduePrincipalDebt" type="integer" name="newOverduePrincipalDebt"/>
+		<property column="Deal_newOverdueInterestDebt" type="integer" name="newOverdueInterestDebt"/>
+		<property column="Deal_newOverdueComissionDebt" type="integer" name="newOverdueComissionDebt"/>
+		<property column="Deal_newMaxOverdue" type="integer" name="newMaxOverdue"/>
+		<property column="Deal_newOverdueToEndOfMonth" type="integer" name="newOverdueToEndOfMonth"/>
+		<property column="Deal_catOfDebtService" name="catOfDebtService">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebtService</param>
+				
+			</type>
+		</property>
+		<property column="Deal_newCatOfDebtService" name="newCatOfDebtService">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebtService</param>
+				
+			</type>
+		</property>
+		<property column="Deal_catOfDebt" name="catOfDebt">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebt</param>
+				
+			</type>
+		</property>
+		<property column="Deal_newCatOfDebt" name="newCatOfDebt">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebt</param>
+				
+			</type>
+		</property>
+		<property column="Deal_newCatOfDebtAfterRestr" name="newCatOfDebtAfterRestr">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebt</param>
+				
+			</type>
+		</property>
+		
+		<property column="Deal_numberOfRestr" type="integer" name="numberOfRestr"/>
+		<property column="Deal_dateOfLastRestr" type="string" name="dateOfLastRestr"/>
+		<property column="Deal_catLastRestr" name="catLastRestr">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.CategoryOfDebt</param>
+				
+			</type>
+		</property>
+		
+		
+		<property column="Deal_isValidRestr" type="string" name="isValidRestr"/>
+		<property column="Deal_essentiality" type="integer" name="essentiality"/>
+		<property column="Deal_risk" type="double" name="risk"/>
+		<property column="Deal_revocable" type="string" name="revocable"/>
+		<property column="Deal_dateOfLastRestr3111" type="string" name="dateOfLastRestr3111"/>
+		<property column="Deal_numberOfRestr3111" type="integer" name="numberOfRestr3111"/>
+		<property column="Deal_earningsOfForeignCurrency" type="string" name="earningsOfForeignCurrency"/>
+		<property column="Deal_periodOfPaymentPrincipal" type="string" name="periodOfPaymentPrincipal"/>
+		<property column="Deal_periodOfPaymentInterest" type="string" name="periodOfPaymentInterest"/>
+		<property column="Deal_groupAccount" type="integer" name="groupAccount"/>
+		<property column="Deal_account" type="string" name="account"/>
+		
+		<property column="Deal_currencyOfDeal" name="currencyOfDeal">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.Currency</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		
+	
+		<property column="Deal_exchengeOfCurrency" type="double" name="exchengeOfCurrency"/>
+		<property column="Deal_summOfPrincipal" type="double" name="summOfPrincipal"/>
+		<property column="Deal_summOfPrincipalEq" type="double" name="summOfPrincipalEq"/>
+		<property column="Deal_summOfDiscont" type="double" name="summOfDiscont"/>
+		<property column="Deal_summOfDiscontEq" type="double" name="summOfDiscontEq"/>
+		<property column="Deal_summWithoutOfDiscont" type="double" name="summWithoutOfDiscont"/>
+		<property column="Deal_summWithoutOfDiscontEq" type="double" name="summWithoutOfDiscontEq"/>
+		<property column="Deal_summOfInterest" type="double" name="summOfInterest"/>
+		<property column="Deal_summOfInterestEq" type="double" name="summOfInterestEq"/>
+		<property column="Deal_summOfFees" type="double" name="summOfFees"/>
+		<property column="Deal_summOfFeesEq" type="double" name="summOfFeesEq"/>
+		<property column="Deal_summOnBalance" type="double" name="summOnBalance"/>
+		<property column="Deal_summOnBalanceEq" type="double" name="summOnBalanceEq"/>
+		<property column="Deal_nominalRate" type="double" name="nominalRate"/>
+		<property column="Deal_effectiveRatePerYear" type="double" name="effectiveRatePerYear"/>
+		<property column="Deal_summOfOverdue" type="double" name="summOfOverdue"/>
+		<property column="Deal_summOfOverdueEq" type="double" name="summOfOverdueEq"/>
+		<property column="Deal_amountOfRemunerationReceivedForCommitmentsAndGuarantees" type="double" name="amountOfRemunerationReceivedForCommitmentsAndGuarantees"/>
+		<property column="Deal_amountOfRemunerationReceivedForCommitmentsAndGuaranteesEq" type="double" name="amountOfRemunerationReceivedForCommitmentsAndGuaranteesEq"/>
+		<property column="Deal_currentValueOfAsset" type="double" name="currentValueOfAsset"/>
+		<property column="Deal_currentValueOfAssetEq" type="double" name="currentValueOfAssetEq"/>
+		<property column="Deal_currentValueOfCredit" type="double" name="currentValueOfCredit"/>
+		<property column="Deal_currentValueOfCreditEq" type="double" name="currentValueOfCreditEq"/>
+		<property column="Deal_provisionOfPrincipal" type="double" name="provisionOfPrincipal"/>
+		<property column="Deal_provisionOfPrincipalEq" type="double" name="provisionOfPrincipalEq"/>
+		<property column="Deal_provisionOfInterest" type="double" name="provisionOfInterest"/>
+		<property column="Deal_provisionOfInterestEq" type="double" name="provisionOfInterestEq"/>
+		<property column="Deal_provisionOfInterestLess30Days" type="double" name="provisionOfInterestLess30Days"/>
+		<property column="Deal_provisionOfInterestLess30DaysEq" type="double" name="provisionOfInterestLess30DaysEq"/>
+		<property column="Deal_provisionOfInterestMore30Days" type="double" name="provisionOfInterestMore30Days"/>
+		<property column="Deal_provisionOfInterestMore30DaysEq" type="double" name="provisionOfInterestMore30DaysEq"/>
+		<property column="Deal_provisionLastPeriod" type="double" name="provisionLastPeriod"/>
+		<property column="Deal_provisionLastPeriodEq" type="double" name="provisionLastPeriodEq"/>
+		<property column="Deal_provisionFact" type="double" name="provisionFact"/>
+		<property column="Deal_provisionFactEq" type="double" name="provisionFactEq"/>
+		<property column="Deal_calculatedProvision" type="double" name="calculatedProvision"/>
+		<property column="Deal_calculatedProvisionEq" type="double" name="calculatedProvisionEq"/>
+		<property column="Deal_difference" type="double" name="difference"/>
+		<property column="Deal_differenceEq" type="double" name="differenceEq"/>
+		<property column="Deal_change" type="double" name="change"/>
+		<property column="Deal_changeEq" type="double" name="changeEq"/>
+		<property column="Deal_groupeOfTOBO" type="string" name="groupeOfTOBO"/>
+		<property column="Deal_regionalCenter" type="string" name="regionalCenter"/>
+		<property column="Deal_nameOfTobo" type="string" name="nameOfTobo"/>
+		<property column="Deal_migraciya" type="integer" name="migraciya"/>
+		<property column="Deal_productTupe" type="string" name="productTupe"/>
+		<property column="Deal_postanova82" type="integer" name="postanova82"/>
+		<property column="Deal_securityMonitoring" type="string" name="securityMonitoring"/>
+		<property column="Deal_securityOcenka" type="string" name="securityOcenka"/>
+		<property column="Deal_easyCountOfProvisions" type="integer" name="easyCountOfProvisions"/>
+		<property column="Deal_firstIndicatorOfRisk" type="double" name="firstIndicatorOfRisk"/>
+		<property column="Deal_secondIndicatorOfRisk" type="double" name="secondIndicatorOfRisk"/>
+		<property column="Deal_resIndicatorOfRisk" type="double" name="resIndicatorOfRisk"/>
+		<property column="Deal_newCalculatedProvisionEq" type="double" name="newCalculatedProvisionEq"/>
+		<property column="Deal_newdifferenceEq" type="double" name="newdifferenceEq"/>
+		<property column="Deal_totalDiscontSummaOfSecurity" type="double" name="totalDiscontSummaOfSecurity"/>
+		<property column="Deal_newSumOfSequrityForDialEq" type="double" name="newSumOfSequrityForDialEq"/>
+		<property column="Deal_balanceEqByNewRisk" type="double" name="balanceEqByNewRisk"/>
+		<property column="Deal_endSumOfSequrity" type="double" name="endSumOfSequrity"/>
+		<property column="Deal_summaPotoka" type="double" name="summaPotoka"/>
+		<property column="Deal_summPotokaEq" type="double" name="summaPotokaEq"/>
+		
+		<list name="sequrities" cascade="all" lazy="false" inverse="false">
+         <key> 
+         	<!-- <column name="Sequrity_code" not-null="false"/> -->
+         	<column name="Sequrity_codeDeal" not-null="false"/> 
+         	
+         </key>
+         <list-index column="idx"/>
+         <one-to-many 
+         	class="ua.fidobank.provisions.domain.Sequrity" 
+         	not-found="ignore"/>
+      	</list>
+		
+	</class>
+	
+	<class name="ua.fidobank.provisions.domain.Sequrity" table = "sequrity">
+	    <composite-id>
+	    	<key-property column="Sequrity_code" type="long" name="code"/>
+		    <key-property column="Sequrity_codeDeal" type="long" name="codeDeal"/>
+		</composite-id>
+		<property column="Sequrity_number" type="string" name="number"/>
+		
+		<property column="Sequrity_Currency" name="currency">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ua.fidobank.provisions.domain.Currency</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		
+		<property column="Sequrity_exchengeCurrency" type="double" name="exchengeCurrency"/>
+		<property column="Sequrity_typeSequrity" type="string" name="typeSequrity"/>
+		<property column="Sequrity_sumOfSequrity" type="double" name="sumOfSequrity"/>
+		<property column="Sequrity_sumOfSequrityEq" type="double" name="sumOfSequrityEq"/>
+		<property column="Sequrity_sumOfSequrityForDial" type="double" name="sumOfSequrityForDial"/>
+		<property column="Sequrity_sumOfSequrityForDialEq" type="double" name="sumOfSequrityForDialEq"/>
+		<property column="Sequrity_koeficientLikvidnosty" type="double" name="koeficientLikvidnosty"/>
+		<property column="Sequrity_discontSumma" type="double" name="discontSumma"/>
+		<property column="Sequrity_discontSummaEq" type="double" name="discontSummaEq"/>
+		<property column="Sequrity_costOfSales" type="double" name="costOfSales"/>
+		<property column="Sequrity_costOfSalesEq" type="double" name="costOfSalesEq"/>
+		<property column="Sequrity_sumFutureSeqPotokov" type="double" name="sumFutureSeqPotokov"/>
+		<property column="Sequrity_sumFutureSeqPotokovEq" type="double" name="sumFutureSeqPotokovEq"/>
+		<property column="Sequrity_srokRealizacii" type="integer" name="srokRealizacii"/>
+		<property column="Sequrity_sequrityMultiplyByLiquidity" type="double" name="sequrityMultiplyByLiquidity"/>
+		<property column="Sequrity_totalAmountOfDealSequrity" type="double" name="totalAmountOfDealSequrity"/>
+		<property column="Sequrity_coeficientSequrity" type="double" name="coeficientSequrity"/>
+		<property column="Sequrity_costOfSale" type="double" name="costOfSale"/>
+		<property column="Sequrity_newSummOfSequrityEq" type="double" name="newSummOfSequrityEq"/>
+		
+		       
+	</class>
+	 
+</hibernate-mapping>
